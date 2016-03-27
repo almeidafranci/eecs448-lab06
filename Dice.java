@@ -45,6 +45,10 @@ public class Dice
 
 				try {
 					Integer sides = Integer.parseInt(input); // Convert String to Integer
+					Random randomGenerator = new Random(); // Create the random generator
+					Integer randomInt = 1 + randomGenerator.nextInt(sides); // Generate an Integer with sides as range
+					String newText = "Your number is: " + String.format("%d",randomInt); // Convert Integer to String and generate message
+					resultLabel.setText(newText); // Display generated number
 				} catch (NumberFormatException ne) {
 					resultLabel.setText("Invalid input");
 				}
