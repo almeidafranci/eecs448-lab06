@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Component;
 import java.awt.GridLayout;
+import java.util.Random;
 
 public class Dice
 {
@@ -41,7 +42,12 @@ public class Dice
 			public void actionPerformed(ActionEvent e)
 			{
 				String input = text.getText();
-				resultLabel.setText(input);
+
+				try {
+					Integer sides = Integer.parseInt(input); // Convert String to Integer
+				} catch (NumberFormatException ne) {
+					resultLabel.setText("Invalid input");
+				}
 			}
 		};
 		
