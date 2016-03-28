@@ -35,6 +35,7 @@ public class Converter
 		buttonFToK.addActionListener(FToKListener());
 		buttonKToF.addActionListener(KToFListener());
 		buttonCToK.addActionListener(CToKListener());
+		buttonKToC.addActionListener(KToCListener());
 		
 		//load the panel
 		panel.add(label);
@@ -153,6 +154,28 @@ public class Converter
 					double tempInC = Double.parseDouble(input); // Convert String to double
 					double tempInK = tempInC+273; // Convert C to K
 					String newText = String.format("%.2f",tempInC) + " C = " + String.format("%.2f",tempInK) + " K"; // Prepare message
+					resultLabel.setText(newText); // Display temperature
+				} catch (NumberFormatException ne) {
+					resultLabel.setText("Invalid input");
+				}
+			}
+		};
+		
+		return listener;
+	}
+
+	private ActionListener KToCListener()
+	{
+		ActionListener listener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String input = text.getText();
+
+				try {
+					double tempInK = Double.parseDouble(input); // Convert String to double
+					double tempInC = tempInK-273; // Convert K to C
+					String newText = String.format("%.2f",tempInK) + " K = " + String.format("%.2f",tempInC) + " C"; // Prepare message
 					resultLabel.setText(newText); // Display temperature
 				} catch (NumberFormatException ne) {
 					resultLabel.setText("Invalid input");
