@@ -23,6 +23,7 @@ public class Converter
 		
 		//Load the listener
 		button.addActionListener(buttonListener());
+		button2.addActionListener(CToFListener());
 		
 		//load the panel
 		panel.add(label);
@@ -57,5 +58,27 @@ public class Converter
 		};
 		
 		return listener;
-	}	
+	}
+
+	private ActionListener CToFListener()
+	{
+		ActionListener listener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String input = text.getText();
+
+				try {
+					double tempInC = Double.parseDouble(input); // Convert String to double
+					double tempInF = (tempInC*(9.0/5.0))+32; // Convert C to F
+					String newText = "Temp in F: " + String.format("%.2f",tempInF); // Convert double to String with 2 decimal places
+					resultLabel.setText(newText); // Display temperature
+				} catch (NumberFormatException ne) {
+					resultLabel.setText("Invalid input");
+				}
+			}
+		};
+		
+		return listener;
+	}
 }
