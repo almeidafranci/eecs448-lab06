@@ -37,6 +37,8 @@ public class Converter
 		buttonCToK.addActionListener(CToKListener());
 		buttonKToC.addActionListener(KToCListener());
 		
+		panel.setLayout(new GridLayout(0,2));
+		
 		//load the panel
 		panel.add(label);
 		panel.add(text);
