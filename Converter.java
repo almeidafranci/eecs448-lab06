@@ -6,8 +6,8 @@ import java.awt.GridLayout;
 public class Converter
 {
 	private JPanel panel;
-	private JButton button;
-	private JButton button2;
+	private JButton buttonFToC;
+	private JButton buttonCToF;
 	private JTextField text;
 	private JLabel label;
 	private JLabel resultLabel;
@@ -15,21 +15,21 @@ public class Converter
 	public Converter()
 	{
 		panel = new JPanel();
-		button = new JButton("Convert");
-		button2 = new JButton("Convert C to F");
-		text = new JTextField(3);//3 cols, not 20 chars
-		label = new JLabel("Enter a temperature from F to C");
+		buttonFToC = new JButton("F to C");
+		buttonCToF = new JButton("C to F");
+		text = new JTextField(3);
+		label = new JLabel("Enter a temperature to convert:");
 		resultLabel = new JLabel("(The conversion will be shows here)");
 		
 		//Load the listener
-		button.addActionListener(buttonListener());
-		button2.addActionListener(CToFListener());
+		buttonFToC.addActionListener(FToCListener());
+		buttonCToF.addActionListener(CToFListener());
 		
 		//load the panel
 		panel.add(label);
 		panel.add(text);
-		panel.add(button);
-		panel.add(button2);
+		panel.add(buttonFToC);
+		panel.add(buttonCToF);
 		panel.add(resultLabel);
 	}
 	
@@ -38,7 +38,7 @@ public class Converter
 		return (panel);
 	}
 	
-	private ActionListener buttonListener()
+	private ActionListener FToCListener()
 	{
 		ActionListener listener = new ActionListener()
 		{
