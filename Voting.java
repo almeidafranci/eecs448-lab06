@@ -45,6 +45,8 @@ public class Voting
 		candidateC.addActionListener(VoteForC());
 		candidateD.addActionListener(VoteForD());
 		
+		panel.setLayout(new GridLayout(0,2));
+		
 		//load the panel
 		panel.add(label1);
 		panel.add(firstName);
