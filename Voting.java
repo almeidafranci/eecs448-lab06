@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.io.File;
-import java.nio.file;
+import java.io.PrintWriter;
 
 public class Voting
 {
@@ -64,14 +64,10 @@ public class Voting
 					try {
 						File file = new File(lName+"_"+fName+"_ballot.txt");
 						if(file.createNewFile()){
-							Charset charset = Charset.forName("US-ASCII");
-							String s = "camdidate a";
-							try (BufferedWriter writer = Files.newBufferedWriter(file, charset)) {
-							    writer.write(s, 0, s.length());
-							} catch (IOException x) {
-							    System.err.format("IOException: %s%n", x);
-							}
-							resultLabel.setText("ok");
+							PrintWriter writer = new PrintWriter(lName+"_"+fName+"_ballot.txt", "UTF-8");
+							writer.println("Candidate A");
+							writer.close();
+							resultLabel.setText("Thank you for your vote!");
 						} else {
 							resultLabel.setText("You already voted");
 						}
