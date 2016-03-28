@@ -9,6 +9,7 @@ public class Converter
 	private JButton button;
 	private JTextField text;
 	private JLabel label;
+	private JLabel resultLabel;
 	
 	public Converter()
 	{
@@ -16,14 +17,16 @@ public class Converter
 		button = new JButton("Convert");
 		text = new JTextField(3);//3 cols, not 20 chars
 		label = new JLabel("Enter a temperature from F to C");
+		resultLabel = new JLabel("(The conversion will be shows here)");
 		
 		//Load the listener
 		button.addActionListener(buttonListener());	
 		
 		//load the panel
+		panel.add(label);
 		panel.add(text);
 		panel.add(button);
-		panel.add(label);
+		panel.add(resultLabel);
 	}
 	
 	public Component getContent()
@@ -38,12 +41,15 @@ public class Converter
 			public void actionPerformed(ActionEvent e)
 			{
 				String input = text.getText();
-				double tempInF = Double.parseDouble(input);//convert String to double
-				double tempInC = (tempInF-32)*(5.0/9.0); //convert F to C
-				String newText = "Temp in C: " + String.format("%.2f",tempInC);//convert double to String and
-											       //only display 2 places past decimal
-				label.setText(newText);
-				System.out.println(newText);
+
+				try {
+					double tempInF = Double.parseDouble(input); // Convert String to double
+					double tempInC = (tempInF-32)*(5.0/9.0); // Convert F to C
+					String newText = "Temp in C: " + String.format("%.2f",tempInC); // Convert double to String with 2 decimal places
+					resultLabel.setText(newText); // Display temperature
+				} catch (NumberFormatException ne) {
+					resultLabel.setText("Invalid input");
+				}
 			}
 		};
 		
