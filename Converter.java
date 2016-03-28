@@ -49,7 +49,7 @@ public class Converter
 				try {
 					double tempInF = Double.parseDouble(input); // Convert String to double
 					double tempInC = (tempInF-32)*(5.0/9.0); // Convert F to C
-					String newText = "Temp in C: " + String.format("%.2f",tempInC); // Convert double to String with 2 decimal places
+					String newText = String.format("%.2f",tempInF) + " F = " + String.format("%.2f",tempInC) + " C"; // Prepare message
 					resultLabel.setText(newText); // Display temperature
 				} catch (NumberFormatException ne) {
 					resultLabel.setText("Invalid input");
@@ -71,7 +71,7 @@ public class Converter
 				try {
 					double tempInC = Double.parseDouble(input); // Convert String to double
 					double tempInF = (tempInC*(9.0/5.0))+32; // Convert C to F
-					String newText = "Temp in F: " + String.format("%.2f",tempInF); // Convert double to String with 2 decimal places
+					String newText = String.format("%.2f",tempInC) + " C = " + String.format("%.2f",tempInF) + " F"; // Prepare message
 					resultLabel.setText(newText); // Display temperature
 				} catch (NumberFormatException ne) {
 					resultLabel.setText("Invalid input");
