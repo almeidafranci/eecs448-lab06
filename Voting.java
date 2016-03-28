@@ -70,9 +70,9 @@ public class Voting
 
 		if (!fName.equals("") && !lName.equals("")) {
 			try {
-				File file = new File(lName+"_"+fName+"_ballot.txt");
+				File file = new File("votes/"+lName+"_"+fName+"_ballot.txt");
 				if(file.createNewFile()){
-					PrintWriter writer = new PrintWriter(lName+"_"+fName+"_ballot.txt", "UTF-8");
+					PrintWriter writer = new PrintWriter("votes/"+lName+"_"+fName+"_ballot.txt", "UTF-8");
 					writer.println(candidate);
 					writer.close();
 					resultLabel.setText("Thank you for your vote!");
