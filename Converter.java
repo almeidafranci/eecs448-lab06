@@ -8,6 +8,10 @@ public class Converter
 	private JPanel panel;
 	private JButton buttonFToC;
 	private JButton buttonCToF;
+	private JButton buttonFToK;
+	private JButton buttonKToF;
+	private JButton buttonCToK;
+	private JButton buttonKToC;
 	private JTextField text;
 	private JLabel label;
 	private JLabel resultLabel;
@@ -17,9 +21,13 @@ public class Converter
 		panel = new JPanel();
 		buttonFToC = new JButton("F to C");
 		buttonCToF = new JButton("C to F");
+		buttonFToK = new JButton("F to K");
+		buttonKToF = new JButton("K to F");
+		buttonCToK = new JButton("C to K");
+		buttonKToC = new JButton("K to C");
 		text = new JTextField(3);
 		label = new JLabel("Enter a temperature to convert:");
-		resultLabel = new JLabel("(The conversion will be shows here)");
+		resultLabel = new JLabel("(The conversion will be shown here)");
 		
 		//Load the listener
 		buttonFToC.addActionListener(FToCListener());
@@ -30,6 +38,10 @@ public class Converter
 		panel.add(text);
 		panel.add(buttonFToC);
 		panel.add(buttonCToF);
+		panel.add(buttonFToK);
+		panel.add(buttonKToF);
+		panel.add(buttonCToK);
+		panel.add(buttonKToC);
 		panel.add(resultLabel);
 	}
 	
